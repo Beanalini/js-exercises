@@ -24,7 +24,8 @@ export function getTotalSubjects(people) {
 export function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+  //use .some() to return first instance where callbackFunc returns true
+  return menu.some((recipe) => recipe.ingredients.includes(ingredient));
 }
 
 export function duplicateNumbers(arr1, arr2) {
