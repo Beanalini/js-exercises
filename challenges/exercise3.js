@@ -28,16 +28,24 @@ export function findVerbs(words) {
 
 export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
+  let intNums = [];
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] % 1 === 0) intNums.push(nums[i]);
+  }
+  return intNums;
 }
 
 export function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+  let userCity = [];
+  for (let i = 0; i < users.length; i++) {
+    userCity.push(users[i].data.city.displayName);
+  }
+  return userCity;
 }
 
 export function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
 }
 
 export function findSentencesContaining(sentences, str) {
