@@ -19,12 +19,15 @@ export function findNamesBeginningWith(names, char) {
 
 export function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
+  let verbWords = [];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].substring(0, 3) === "to ") verbWords.push(words[i]);
+  }
+  return verbWords;
 }
 
 export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
 }
 
 export function getCities(users) {
