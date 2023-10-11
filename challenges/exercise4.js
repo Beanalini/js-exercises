@@ -22,18 +22,24 @@ export const reverseNumber = (n) => {
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  return arrs.flat().reduce((total, num) => {
+    return total + num;
+  }, 0);
 };
 
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+  const arrLen = arr.length;
+  if (arrLen > 1) [arr[0], arr[arrLen - 1]] = [arr[arrLen - 1], arr[0]];
+  return arr;
 };
 
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
+  return Object.values(haystack).some((val) =>
+    val.toString().toLowerCase().includes(searchTerm.toLowerCase())
+  );
 };
 
 export const getWordFrequencies = (str) => {
