@@ -9,7 +9,8 @@ export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
   let countArr = { 0: 0, 1: 0 };
   str.split("").forEach((entry) => {
-    countArr[entry]++;
+    //checking for non 0 or 1 entries in input string
+    if (countArr[entry] !== undefined) countArr[entry]++;
   });
   return countArr;
 };
