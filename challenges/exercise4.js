@@ -7,7 +7,11 @@ export const findNextNumber = (nums, n) => {
 
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  let countArr = { 0: 0, 1: 0 };
+  str.split("").forEach((entry) => {
+    countArr[entry]++;
+  });
+  return countArr;
 };
 
 export const reverseNumber = (n) => {
