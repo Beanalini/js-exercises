@@ -1,4 +1,4 @@
-import { sumMultiples } from "../challenges/exercise5";
+import { sumMultiples, isValidDNA } from "../challenges/exercise5";
 
 describe("sumMultiples", () => {
   test("it throws an error if not passed an array", () => {
@@ -23,5 +23,25 @@ describe("sumMultiples", () => {
   test("returns 0 if there are no multiples of 3 or 5", () => {
     expect(sumMultiples([4, 23, 0, 11])).toBe(0);
     expect(sumMultiples([0, 0, 0])).toBe(0);
+  });
+});
+
+describe("isValidDNA", () => {
+  test("return true when string contains the DNA string characters CGTA only ", () => {
+    expect(isValidDNA("GTCA")).toBe(true);
+    expect(isValidDNA("CCATAAGAATTA")).toBe(true);
+    expect(isValidDNA("AATCCCCCGTTT")).toBe(true);
+  });
+
+  test("return false when string contains non DNA characters", () => {
+    expect(isValidDNA("GGTXCTA")).toBe(false);
+    expect(isValidDNA("CCATQRAAGAATTA")).toBe(false);
+    expect(isValidDNA("AATXXCCCCCGZTTT")).toBe(false);
+  });
+
+  test("it is not case sensitive", () => {
+    expect(isValidDNA("GgTxCTA")).toBe(false);
+    expect(isValidDNA("CCaTGAAtTcA")).toBe(true);
+    expect(isValidDNA("aact")).toBe(true);
   });
 });

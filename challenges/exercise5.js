@@ -13,7 +13,6 @@
 export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   if (!Array.isArray(arr)) throw new Error("an Array is required");
-
   return arr.reduce((accum, num) => {
     return num % 3 === 0 || num % 5 === 0 ? accum + num : accum;
   }, 0);
@@ -26,6 +25,14 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  const nucTides = ["A", "C", "G", "T"];
+  const testDNA = str
+    .toUpperCase()
+    .split("")
+    .reduce((accum, nucTide) => {
+      return nucTides.includes(nucTide) === false ? accum + 1 : accum;
+    }, 0);
+  return testDNA > 0 ? false : true;
 };
 
 /**
