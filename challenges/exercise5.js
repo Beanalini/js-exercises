@@ -103,8 +103,8 @@ export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
   let dayCount = 0;
-  staff.forEach((employee) => {
-    if (employee.rota.includes(day) === true) ++dayCount;
+  staff.forEach(({ rota }) => {
+    if (rota.includes(day) === true) ++dayCount;
   });
   return dayCount >= 3 ? true : false;
 };
