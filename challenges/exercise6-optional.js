@@ -29,7 +29,7 @@ export const createRange = (start, end, step) => {
 
   if (end > start) {
     const arrSize = Math.floor((end - start) / step) + 1;
-    return Array.from(new Array(arrSize), (x, indx) => start + step * indx);
+    return Array.from(new Array(arrSize), (entry, indx) => start + step * indx);
   }
   return [];
 };
