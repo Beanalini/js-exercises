@@ -3,6 +3,7 @@ import {
   isValidDNA,
   getComplementaryDNA,
   isItPrime,
+  createMatrix,
 } from "../challenges/exercise5";
 
 describe("sumMultiples", () => {

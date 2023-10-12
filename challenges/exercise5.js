@@ -58,6 +58,7 @@ export const getComplementaryDNA = (str) => {
  */
 export const isItPrime = (n) => {
   if (n === undefined) throw new Error("n is required");
+  if (isNaN(n)) throw new Error("a Number is required");
   if (n < 2 || (n > 2 && n % 2 === 0)) return false;
   if (n === 2) return true;
   const limit = Math.sqrt(n);
