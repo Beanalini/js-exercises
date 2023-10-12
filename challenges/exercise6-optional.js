@@ -7,7 +7,11 @@
  * @param {Number} n
  */
 export const sumDigits = (n) => {
-	if (n === undefined) throw new Error('n is required');
+  if (n === undefined) throw new Error("n is required");
+  if (isNaN(n)) throw new Error("a Number is required");
+  return Array.from(String(n), Number).reduce((accum, num) => {
+    return (accum += num);
+  }, 0);
 };
 
 /**
@@ -19,12 +23,15 @@ export const sumDigits = (n) => {
  * @param {Number} step
  */
 export const createRange = (start, end, step) => {
-	if (start === undefined) throw new Error('start is required');
-	if (end === undefined) throw new Error('end is required');
-	if (step === undefined)
-		console.log(
-			"FYI: Optional step parameter not provided. Remove this check once you've handled the optional step!"
-		);
+  if (start === undefined) throw new Error("start is required");
+  if (end === undefined) throw new Error("end is required");
+  if (step === undefined) step = 1;
+
+  if (end > start) {
+    const arrSize = Math.floor((end - start) / step) + 1;
+    return Array.from(new Array(arrSize), (x, indx) => start + step * indx);
+  }
+  return [];
 };
 
 /**
@@ -57,8 +64,8 @@ export const createRange = (start, end, step) => {
  * @param {Array} users
  */
 export const getScreentimeAlertList = (users, date) => {
-	if (users === undefined) throw new Error('users is required');
-	if (date === undefined) throw new Error('date is required');
+  if (users === undefined) throw new Error("users is required");
+  if (date === undefined) throw new Error("date is required");
 };
 
 /**
@@ -72,7 +79,7 @@ export const getScreentimeAlertList = (users, date) => {
  * @param {String} str
  */
 export const hexToRGB = (hexStr) => {
-	if (hexStr === undefined) throw new Error('hexStr is required');
+  if (hexStr === undefined) throw new Error("hexStr is required");
 };
 
 /**
@@ -86,5 +93,5 @@ export const hexToRGB = (hexStr) => {
  * @param {Array} board
  */
 export const findWinner = (board) => {
-	if (board === undefined) throw new Error('board is required');
+  if (board === undefined) throw new Error("board is required");
 };

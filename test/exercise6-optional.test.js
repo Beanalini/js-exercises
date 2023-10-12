@@ -1,4 +1,4 @@
-import { sumDigits } from "../challenges/exercise6-optional";
+import { sumDigits, createRange } from "../challenges/exercise6-optional";
 
 describe("sumDigits", () => {
   test("it throws an error if n is not passed", () => {
@@ -21,5 +21,26 @@ describe("sumDigits", () => {
   });
   test("returns sum of digits if number contains 0's", () => {
     expect(sumDigits(102000)).toBe(3);
+  });
+});
+
+describe("createRange", () => {
+  test("Returns an array of numbers in the range between start and end with a given step size. ", () => {
+    expect(createRange(3, 11, 2)).toEqual([3, 5, 7, 9, 11]);
+    expect(createRange(0, 100, 10)).toEqual([
+      0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100,
+    ]);
+    expect(createRange(130, 531, 100)).toEqual([130, 230, 330, 430, 530]);
+  });
+  test("returns an array with negative ranges ", () => {
+    expect(createRange(-25, -10, 5)).toEqual([-25, -20, -15, -10]);
+  });
+  test("returns an empty array when start value > end value ", () => {
+    expect(createRange(10, 6, 2)).toEqual([]);
+    expect(createRange(-4, -22, 3)).toEqual([]);
+  });
+  test("when step size not given - step size of 1 used  ", () => {
+    expect(createRange(7, 15)).toEqual([7, 8, 9, 10, 11, 12, 13, 14, 15]);
+    expect(createRange(-5, 0)).toEqual([-5, -4, -3, -2, -1, 0]);
   });
 });
