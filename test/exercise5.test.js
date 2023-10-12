@@ -92,3 +92,44 @@ describe("isItPrime", () => {
     expect(isItPrime(977)).toBe(true);
   });
 });
+
+describe("createMatrix", () => {
+  test("returns a square matrix with rows and columns defined by n with each element set to the value of fill.", () => {
+    const matrix = createMatrix(2, "bob");
+    const expected = [
+      ["bob", "bob"],
+      ["bob", "bob"],
+    ];
+    expect(matrix).toEqual(expected);
+  });
+  test("returns a 4 by 4 matrix with rows and columns defined by n with each element set to 'bob.", () => {
+    const matrix1 = createMatrix(4, "bob");
+    const expected1 = [
+      ["bob", "bob", "bob", "bob"],
+      ["bob", "bob", "bob", "bob"],
+      ["bob", "bob", "bob", "bob"],
+      ["bob", "bob", "bob", "bob"],
+    ];
+    expect(matrix1).toEqual(expected1);
+  });
+  test("returns a 1 by 1 matrix with  element set to 'bob.", () => {
+    const matrix2 = createMatrix(1, "bob");
+    const expected2 = [["bob"]];
+    expect(matrix2).toEqual(expected2);
+  });
+  test("returns an empty array when  value of matrix size is 0", () => {
+    const matrix3 = createMatrix(0, "bob");
+    const expected3 = [];
+    expect(matrix3).toEqual(expected3);
+  });
+  test("Works with different fill types - creates a 2x2 matrix with each element set to 10", () => {
+    const matrix4 = createMatrix(4, 10);
+    const expected4 = [
+      [10, 10, 10, 10],
+      [10, 10, 10, 10],
+      [10, 10, 10, 10],
+      [10, 10, 10, 10],
+    ];
+    expect(matrix4).toEqual(expected4);
+  });
+});
