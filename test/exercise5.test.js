@@ -2,6 +2,7 @@ import {
   sumMultiples,
   isValidDNA,
   getComplementaryDNA,
+  isItPrime,
 } from "../challenges/exercise5";
 
 describe("sumMultiples", () => {
@@ -60,5 +61,33 @@ describe("getComplementaryDNA", () => {
     expect(getComplementaryDNA("ACTG")).toBe("TGAC");
     expect(getComplementaryDNA("GATC")).toBe("CTAG");
     expect(getComplementaryDNA("CCATGCATT")).toBe("GGTACGTAA");
+  });
+});
+
+describe("isItPrime", () => {
+  test("it throws an error if n is not passed", () => {
+    expect(() => {
+      isItPrime();
+    }).toThrow("n is required");
+
+    expect(() => {
+      isItPrime("foo");
+    }).toThrow("a Number is required");
+  });
+  test("returns false if number is 0 or 1", () => {
+    expect(isItPrime(0)).toBe(false);
+    expect(isItPrime(1)).toBe(false);
+  });
+  test("return false if number is even", () => {
+    expect(isItPrime(4)).toBe(false);
+    expect(isItPrime(112)).toBe(false);
+    expect(isItPrime(66)).toBe(false);
+    expect(isItPrime(42)).toBe(false);
+  });
+  test("return true if number is a prime number", () => {
+    expect(isItPrime(2)).toBe(true);
+    expect(isItPrime(97)).toBe(true);
+    expect(isItPrime(113)).toBe(true);
+    expect(isItPrime(977)).toBe(true);
   });
 });
