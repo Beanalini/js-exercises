@@ -1,4 +1,8 @@
-import { sumDigits, createRange } from "../challenges/exercise6-optional";
+import {
+  sumDigits,
+  createRange,
+  hexToRGB,
+} from "../challenges/exercise6-optional";
 
 describe("sumDigits", () => {
   test("it throws an error if n is not passed", () => {
@@ -42,5 +46,17 @@ describe("createRange", () => {
   test("when step size not given - step size of 1 used  ", () => {
     expect(createRange(7, 15)).toEqual([7, 8, 9, 10, 11, 12, 13, 14, 15]);
     expect(createRange(-5, 0)).toEqual([-5, -4, -3, -2, -1, 0]);
+  });
+});
+
+describe("hexToRGB", () => {
+  test("Returns the decimal version of a given hexadecimal colour code ", () => {
+    expect(() => {
+      hexToRGB("#ZZ1133");
+    }).toThrow("Not a valid Hex value");
+  });
+
+  test("Returns the decimal version of a given hexadecimal colour code ", () => {
+    expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
   });
 });
