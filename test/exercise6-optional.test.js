@@ -2,6 +2,7 @@ import {
   sumDigits,
   createRange,
   hexToRGB,
+  findWinner,
 } from "../challenges/exercise6-optional";
 
 describe("sumDigits", () => {
@@ -58,5 +59,32 @@ describe("hexToRGB", () => {
 
   test("Returns the decimal version of a given hexadecimal colour code ", () => {
     expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
+  });
+});
+
+describe("findWinner", () => {
+  const board1 = [
+    ["X", "0", null],
+    ["X", null, "0"],
+    ["X", null, "0"],
+  ];
+  test("returns 'X' if player X has won", () => {
+    expect(findWinner(board1)).toBe("X");
+  });
+  const board2 = [
+    ["0", "0", "X"],
+    ["X", "0", "0"],
+    ["X", null, "0"],
+  ];
+  test("returns '0' if player 0 has won", () => {
+    expect(findWinner(board2)).toBe("0");
+  });
+  const board3 = [
+    ["0", "0", "X"],
+    ["X", "X", "0"],
+    ["X", null, "0"],
+  ];
+  test("returns null if there is no winner", () => {
+    expect(findWinner(board3)).toBe(null);
   });
 });
