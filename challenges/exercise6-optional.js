@@ -66,6 +66,19 @@ export const createRange = (start, end, step) => {
 export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  let bigScreenUsers = [];
+  users.map((user) => {
+    user.screenTime.map((entry) => {
+      if (entry.date === date) {
+        let userScreenTime = 0;
+        for (let key in entry.usage) {
+          userScreenTime += entry.usage[key];
+        }
+        if (userScreenTime > 100) bigScreenUsers.push(user.username);
+      }
+    });
+  });
+  return bigScreenUsers;
 };
 
 /**
